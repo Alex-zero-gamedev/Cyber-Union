@@ -8,13 +8,16 @@ public class WeaponControl : MonoBehaviour
     public float damage = 21;
     public float fireRate = 1;
     public float range = 15;
+    private int ammo = 16, maxAmmo = 16;
     public ParticleSystem muzzleFlash;
     public Transform bulletspawn;
-    public AudioClip shotFX;
+    public AudioClip shotFX;  
+    public AudioClip reloadFX;
+    public AudioClip shootHFX;
     public AudioSource _audioSource;
     public Camera _cum;
     public float nextFire = 0f;
-    private bool Shuuting = true;
+
     void Start()
     {
         
@@ -25,22 +28,39 @@ public class WeaponControl : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) {
             //nextFire = Time.time + 1f / fireRate;
-            Shuuting = true;
-            if (Shuuting) Shoot(); 
+            Shoot(); 
         }
-
+        
+        if (Input.GetButtonDown("Reload"))
+        {
+            Reload();
+        }
     }
     void Shoot()
     {
-        _audioSource.PlayOneShot(shotFX);
-        //Instantiate(muzzleFlash, bulletspawn.position, bulletspawn.rotation); 
-        muzzleFlash.Play();
-        RaycastHit hit;
-
-        if (Physics.Raycast(_cum.transform.position, _cum.transform.forward, out hit, range))
+        if (ammo > 0)
         {
-            Debug.Log("Cuming!!!");
+            _audioSource.PlayOneShot(shotFX);
+            //Instantiate(muzzleFlash, bulletspawn.position, bulletspawn.rotation); 
+            muzzleFlash.Play();
+            RaycastHit hit;
+
+            if (Physics.Raycast(_cum.transform.position, _cum.transform.forward, out hit, range))
+            {
+                Debug.Log("Cuming!!!");
+            }
+            ammo--;
+            Debug.Log(ammo);
         }
-        Shuuting = false;
+        else _audioSource.PlayOneShot(shootHFX);
+    }
+    void Reload()
+    {
+        if (ammo == maxAmmo)
+        {
+            _audioSource.PlayOneShot(reloadFX);
+            ammo += (maxAmmo - ammo);
+            Debug.Log(ammo);
+        }
     }
 }
