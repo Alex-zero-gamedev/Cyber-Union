@@ -525,7 +525,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		} 
 		//Restore ammo when reloading
-		currentAmmo = ammo;
+		currentAmmo += ammo - 1;
+		if (currentAmmo > ammo) currentAmmo = ammo;
 		outOfAmmo = false;
 	}
 
@@ -567,7 +568,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		}
 		//Restore ammo when reloading
-		currentAmmo = ammo;
+		currentAmmo += ammo - 1;
+		if (currentAmmo > ammo) currentAmmo = ammo;
 		outOfAmmo = false;
 	}
 
