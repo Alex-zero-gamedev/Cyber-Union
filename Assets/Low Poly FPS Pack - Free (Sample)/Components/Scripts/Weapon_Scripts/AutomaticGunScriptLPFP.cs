@@ -288,18 +288,18 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		AnimationCheck ();
 
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting && !isReloading) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.F) && !isInspecting && !isReloading) 
 		{
 			anim.Play ("Knife Attack 2", 0, 0f);
 		}
 			
 		//Throw grenade when pressing G key
-		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.G) && !isInspecting && !isReloading) 
 		{
 			StartCoroutine (GrenadeSpawnDelay ());
 			//Play grenade throw animation
@@ -459,7 +459,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
 			//Reload
-			Reload ();
+			StartCoroutine (Reload ());
 		}
 
 		//Walking when pressing down WASD keys
@@ -531,7 +531,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	}
 
 	//Reload
-	private void Reload () {
+	private IEnumerator Reload () {
 		
 		if (outOfAmmo == true) 
 		{
@@ -559,6 +559,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			mainAudioSource.clip = SoundClips.reloadSoundAmmoLeft;
 			mainAudioSource.Play ();
 
+
 			//If reloading when ammo left, show bullet in mag
 			//Do not show if bullet renderer is not assigned in inspector
 			if (bulletInMagRenderer != null) 
@@ -568,6 +569,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		}
 		//Restore ammo when reloading
+		yield return new WaitForSeconds ((float)1.42);
+
 		currentAmmo += ammo - 1;
 		if (currentAmmo > ammo) currentAmmo = ammo;
 		outOfAmmo = false;
