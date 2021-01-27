@@ -571,8 +571,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		yield return new WaitForSeconds ((float)1.42);
 
-		currentAmmo += ammo - 1;
-		if (currentAmmo > ammo) currentAmmo = ammo;
+		currentAmmo += ammo;
+		if (currentAmmo > ammo) currentAmmo = ammo + 1;
 		outOfAmmo = false;
 	}
 

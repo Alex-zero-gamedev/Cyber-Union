@@ -669,13 +669,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4566284984246580, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7982
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566284984246580, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566284984246580, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943854361810558, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943854361810558, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943854361810558, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6618
+      objectReference: {fileID: 0}
     - target: {fileID: 114216158892903854, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: weaponName
       value: AK
       objectReference: {fileID: 0}
+    - target: {fileID: 114216158892903854, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: ammo
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 114985937948325432, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: mouseSensitivity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 199081602531183990, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199519382888351446, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224203904301029376, guid: b9ca752c3df4dec4cadafd04fc5d444b, type: 3}
       propertyPath: m_AnchoredPosition.x
