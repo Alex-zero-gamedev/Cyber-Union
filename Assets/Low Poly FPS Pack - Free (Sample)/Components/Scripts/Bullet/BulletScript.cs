@@ -68,6 +68,11 @@ public class BulletScript : MonoBehaviour {
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
+		if (collision.transform.tag == "Enemy")
+		{
+			//Destroy bullet object
+			Destroy(gameObject);
+		}
 	}
 
 	private IEnumerator DestroyTimer () 
